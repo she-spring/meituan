@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home'
 import Found from '../pages/Found/Found'
 import Order from '../pages/Order/Order'
 import My from '../pages/My/My'
+import Detail from '../components/Detail'
 
 Vue.use(Router)
 
@@ -12,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
     },
     {
       path: '/found',
@@ -28,6 +29,11 @@ export default new Router({
       path: '/my',
       name: 'My',
       component: My
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })

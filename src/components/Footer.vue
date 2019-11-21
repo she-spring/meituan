@@ -1,9 +1,13 @@
 <template>
     <div class="footer">
-        <router-link :to="{name: 'Home'}" class="nav-item">首页</router-link>
-        <router-link :to="{name: 'Found'}" class="nav-item">发现</router-link>
-        <router-link :to="{name: 'Order'}" class="nav-item">订单</router-link>
-        <router-link :to="{name: 'My'}" class="nav-item">我的</router-link>
+        <router-link :to="{name: 'Home'}" class="nav-item">
+            <i class="iconfont icon-shouyeshouye"></i>首页</router-link>
+        <router-link :to="{name: 'Found'}" class="nav-item">
+            <i class="iconfont icon-faxian"></i>发现</router-link>
+        <router-link :to="{name: 'Order'}" class="nav-item">
+            <i class="iconfont icon-dingdan"></i>订单</router-link>
+        <router-link :to="{name: 'My'}" class="nav-item">
+            <i class="iconfont icon-wode"></i>我的</router-link>
 
     </div>
 </template>
@@ -16,7 +20,7 @@
     background-color: #ffffff;
     flex: 0;
     width: 100%;
-    padding:15px 0;
+    padding:5px 0;
     
 }
 .nav-item{
@@ -29,6 +33,9 @@
 }
 .router-link-exact-active{
     color: #ffb500;
+}
+.iconfont{
+    font-size: 30px;
 }
 
 </style>

@@ -1,38 +1,75 @@
 <template>
     <div class="container">
         <div class="tool">
+          <router-link :to="{name: 'Home'}" class="nav-item">
+            <i class="iconfont icon-saoyisao"></i>扫一扫</router-link>
+          <router-link :to="{name: 'Found'}" class="nav-item">
+              <i class="iconfont icon-fukuanma"></i>付款码</router-link>
+          <router-link :to="{name: 'Order'}" class="nav-item">
+              <i class="iconfont icon-kaquan"></i>红包/卡券</router-link>
+          <router-link :to="{name: 'My'}" class="nav-item">
+              <i class="iconfont icon-zixingche"></i>骑单车</router-link>
 
         </div>
         <div class="nav">
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-meishi"></i>美食</router-link>
+            <router-link :to="{name: 'Found'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-meishi"></i>电影</router-link>
+            <router-link :to="{name: 'Order'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-meishi"></i>酒店</router-link>
+            <router-link :to="{name: 'My'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-meishi"></i>休闲娱乐</router-link>
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-meishi"></i>外卖</router-link>
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-dache"></i>打车</router-link>
+            <router-link :to="{name: 'Found'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-scenery"></i>景点</router-link>
+            <router-link :to="{name: 'Order'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-lvyou"></i>旅游</router-link>
+            <router-link :to="{name: 'My'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-sheying"></i>结婚</router-link>
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-huochepiao"></i>火车票</router-link>
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-lvyou"></i>免费水果</router-link>
+            <router-link :to="{name: 'Found'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-scenery"></i>袋鼠快跑</router-link>
+            <router-link :to="{name: 'Order'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-scenery"></i>红包签到</router-link>
+            <router-link :to="{name: 'My'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-sheying"></i>跑腿代购</router-link>
+            <router-link :to="{name: 'Home'}" class="nav-item1">
+                <i class="iconfont iconfont1 icon-gengduo"></i>更多</router-link>
+       
 
         </div>
         <van-swipe :autoplay="3000" indicator-color="white">
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
+            <van-swipe-item><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=931583510,1375954826&fm=26&gp=0.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3332011578,3070158787&fm=26&gp=0.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1070025161,51311318&fm=26&gp=0.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1626299413,1519235328&fm=15&gp=0.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2669955069,882038394&fm=26&gp=0.jpg" alt=""></van-swipe-item>
+            <van-swipe-item><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2670085430,3553438355&fm=15&gp=0.jpg" alt=""></van-swipe-item>
         </van-swipe>
-        <!-- <van-list
-          v-model="loading"
-            :finished="finished"
-            finished-text="没有更多了"
-            @load="onLoad"
-            
-            
-            >
-        <van-cell
-            v-for="item in list"
-            :key="item"
-            :title="item"
-        />
-       </van-list> -->
+        <ul>
+            <li class="list-item" v-for="(item,index) in list" :key="index" @click="topath()">
+              <span>{{item.title}}</span>
+              <img :src="item.imgSrc" alt="">
+            </li>
+       </ul>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 import Vue from 'vue';
 import { List } from 'vant';
 import { Swipe, SwipeItem } from 'vant';
+import { Icon } from 'vant';
+Vue.use(Icon);
 Vue.use(List);
 Vue.use(Swipe).use(SwipeItem);
 export default {
@@ -40,37 +77,35 @@ export default {
     return {
       list: [],
       loading: false,
-      finished: false
+      finished: false,
+
     };
   },
 
   methods: {
-    // onLoad() {
-    //   // 异步更新数据
-    //   setTimeout(() => {
-    //     for (let i = 0; i < 10; i++) {
-    //       this.list.push(this.list.length + 1);
-    //       console.log(this.list)
-    //     }
-    //     //加载状态结束
-    //     this.loading = false;
-
-    //     // 数据全部加载完成
-    //     if (this.list.length >= 40) {
-    //       this.finished = true;
-    //     }
-    //   }, 500);
-    // }
+    onLoad() {
+    
+    },
+    topath(){
+      this.$router.push('/detail')
+    }
+  },
+  mounted(){
+    axios.get('/api/data').then(res => {//get()中的参数要与mock.js文件中的Mock.mock()配置的路由保持一致
+          console.log(res.data.listData);
+          
+          this.list = res.data.listData;
+          // console.log(this.list)
+          
+        }).catch(res => {
+          alert('wrong');
+        })
   }
-
 }
 </script>
 
 <style scoped>
 .container{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     background-color: #f5f5f5;
     width: 100%;
     overflow: auto;
@@ -78,23 +113,75 @@ export default {
 .tool{
     width: 100%;
     height: 250px;
-    background-color: #ffb500;
+    background-color: #ffe000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top:20px;
+}
+.nav-item{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 25%;
+    text-align: center;
+    color: #000;
+    padding: 0 10px;
+}
+.iconfont{
+    font-size: 30px;
+}
+.iconfont1{
+    font-size: 40px;
+    color: orange
+}
+.icon-dianying{
+  color: #ee0a24;
 }
 .nav{
     width: 100%;
     height: 200px;
     background-color: #fff;
     border-radius: 50px 50px 0 0;
-    margin-top: -200px;
+    margin-top: -180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+.nav-item1{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+    color: #333;
 
 }
 .van-swipe,.van-swipe__track,.van-swipe-item{
     width: 100%;
     height: 100px;
     background-color: lightblue;
+    border-radius: 20px;
+    /* padding: 0 10px; */
+}
+img{
+  width: 100%;
+  
+}
+ul{
+    /* width: 100%; */
+    padding: 0 10px;
+}
+.list-item{
+  height: 150px;
+  background-color: #ffffff;
+  margin-top: 10px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 150px;
+}
 
-}
-.van-list{
-    width: 100%;
-}
 </style>
