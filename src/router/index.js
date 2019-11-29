@@ -5,6 +5,7 @@ import Found from '../pages/Found/Found'
 import Order from '../pages/Order/Order'
 import My from '../pages/My/My'
 import Detail from '../components/Detail'
+import City from '../pages/Home/city/City'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail
-    }
+    },
+    {
+      path: '/city',
+      name: 'City',
+      component: City
+  }
   ]
 })
